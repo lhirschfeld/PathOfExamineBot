@@ -44,6 +44,5 @@ def respond(lim, rate):
         with open('ids.pickle', 'wb') as handle:
             pickle.dump(ids, handle, protocol=pickle.HIGHEST_PROTOCOL)
         sleep(rate)
-        print("Encountered an error.")
 
 respond(50,10)
