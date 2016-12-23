@@ -4,10 +4,12 @@ from time import sleep
 import pickle
 
 import praw
+import OAuth2Util
 from allpages import getPages
 from lookup import findItem
 
 r = praw.Reddit('bot1')
+
 m = re.compile(r"\[\[[^\]]*\]\]")
 
 def respond(lim, rate):
@@ -42,5 +44,6 @@ def respond(lim, rate):
         with open('ids.pickle', 'wb') as handle:
             pickle.dump(ids, handle, protocol=pickle.HIGHEST_PROTOCOL)
         sleep(rate)
+        print("Encountered an error.")
 
 respond(50,10)
