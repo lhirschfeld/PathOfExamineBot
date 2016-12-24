@@ -13,7 +13,7 @@ def supers(text):
         response += "^" + split[i]
     return response
 
-def findItem(name):
+def findItem(name, isPOE):
     name = name.replace("'","%27")
 
     #Ignore comments made by this bot.
@@ -29,7 +29,7 @@ def findItem(name):
     bestPages = Counter(pageScores).most_common(1)
     print(bestPages)
     for page in bestPages:
-        test = itemLookup(page[0])
+        test = itemLookup(page[0], isPOE)
         if test != "":
             return test
 
@@ -111,7 +111,7 @@ def printUnique(itemStats, itemMods, itemURL, itemFlavour, response):
     return response;
 
 
-def itemLookup(page):
+def itemLookup(page, isPOE):
     # Try a URL
     r = requests.get("http://www.pathofexile.gamepedia.com" + page, timeout = 0.5)
     if r.status_code == 404:
@@ -158,7 +158,7 @@ def itemLookup(page):
     response += "[[Wiki]](http://www.pathofexile.gamepedia.com/" + page + ")\n\n"
 
     # Print Stats
-    if not isUnique:
+    if not isUnique or not isPOE:
         return printNonUnique(itemStats, itemMods, itemURL, response)
     else:
         response += itemTitleU
