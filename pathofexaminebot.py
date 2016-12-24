@@ -35,7 +35,9 @@ def respond(lim, rate):
                         if temp != "":
                             reply += "\n\n---------\n\n"
                     if reply != "":
-                        reply += "I am a bot. Reply to me with up to 7 [[item names]]."
+                        reply += " ^I ^am ^a ^bot. ^Reply ^to ^me ^with ^up ^to ^7 ^[[item names]]."
+                        reply += " ^Please ^contact ^/u/liortulip, ^my ^creator"
+                        reply += " ^with ^any ^questions ^or ^concerns. ^Thanks!"
                         print("Replying...")
                         com.reply(reply)
                     else:

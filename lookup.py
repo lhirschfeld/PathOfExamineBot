@@ -1,6 +1,5 @@
 import requests
 import pickle
-import itertools
 from collections import Counter
 from difflib import SequenceMatcher
 from bs4 import BeautifulSoup
