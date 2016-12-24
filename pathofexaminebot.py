@@ -36,6 +36,7 @@ def respond(lim, rate):
                             reply += "\n\n---------\n\n"
                     if reply != "":
                         reply += "I am a bot. Reply to me with up to 7 [[item names]]."
+                        print("Replying...")
                         com.reply(reply)
                     else:
                         print("False Reply ^")

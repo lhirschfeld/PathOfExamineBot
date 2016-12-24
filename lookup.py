@@ -27,7 +27,7 @@ def findItem(name):
     pageScores = {}
     for key in pages:
         pageScores[pages[key]] = SequenceMatcher(None, name, key).ratio()
-    bestPages = Counter(pageScores).most_common(5)
+    bestPages = Counter(pageScores).most_common(1)
     print(bestPages)
     for page in bestPages:
         test = itemLookup(page[0])
@@ -105,7 +105,7 @@ def printUnique(itemStats, itemMods, itemURL, itemFlavour, response):
     response += "*"
     for item in itemFlavour.children:
         if item.string:
-                response += item.string
+                response += item.string.strip()
         else:
             response += "*\n\n*"
     response += "*"
